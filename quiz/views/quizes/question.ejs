@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='icon' href='favicon.ico' type="image/x-icon" />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <form method="get" action="/quizes/answer">
-        Pregunta: <%= pregunta %>
-        <input type="text" placeholder="Responda aquí" name="answer"/>
-        <input type="submit" value="Enviar" />
-    </form>
-  </body>
-</html>
+<h1><%= title %></h1>
+<form method="get" action="/quizes/answer">
+Pregunta: <%= pregunta %>
+<input type="text" placeholder="Responda aquí" name="answer"/>
+<input type="submit" value="Enviar" />
+</form>
