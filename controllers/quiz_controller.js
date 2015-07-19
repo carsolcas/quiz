@@ -1,8 +1,14 @@
+var models = require('../models/models.js');
+
 exports.question = function(req, res){
-    res.render('quizes/question', {pregunta: 'Capital de Italia', title: 'Quiz'});
+    models.Quiz.findAll().success(function(quiz){
+        res.render('quizes/question', {pregunta: quiz[0].pregunta});
+    });
 }
 
 exports.answer = function(req, res){
-    var answer = (req.query.answer == 'Roma') ? 'Correcto' : 'Incorrecto';
-    res.render('quizes/answer', {respuesta: answer, title: 'Quiz'});
+    models.Quiz.findAll().success(function(quiz){
+        var answer = (req.query.answer == quiz[0].respuesta) ? 'Correcto' : 'Incorrecto';
+        res.render('quizes/answer', {respuesta: answer});
+    });
 }
