@@ -22,7 +22,17 @@ exports.answer = function(req, res){
 }
 
 exports.index = function(req, res){
-    models.Quiz.findAll(req.params.quizId).then(function(quizes){
-        res.render('quizes/index', {quizes: quizes});
+    var filters = {};
+    var q = req.query.q || '';
+
+    if (q)
+        filters = {
+            where: {
+                pregunta:{like: '%' + q + '%'}
+            }
+        }
+
+    models.Quiz.findAll(filters).then(function(quizes){
+        res.render('quizes/index', {quizes: quizes, q: q});
     });
 }

@@ -1,3 +1,10 @@
+<div>
+<form method="GET" action="">
+    <label for="search">Buscar preguntas</label>
+    <input type="text" name="q" id="search" value="<%= q %>" placeholder="Introduce texto a buscar" />
+    <input type="submit" value="Buscar">
+</form>
+</div>
 <table>
     <% for (var i=0, len=quizes.length; i < len; i++) {%>
         <tr>
