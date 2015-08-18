@@ -28,8 +28,8 @@ var Quiz = sequelize.import(quiz_path);
 
 exports.Quiz = Quiz;
 
-sequelize.sync().success(function(){
-    Quiz.count().success(function(count){
+sequelize.sync().then(function(){
+    Quiz.count().then(function(count){
         if (count === 0){
             Quiz.create({pregunta: 'Capital de Italia',
                          respuesta: 'geografia',
@@ -38,7 +38,7 @@ sequelize.sync().success(function(){
             Quiz.create({pregunta: 'Capital de Portugal',
                          categoria: 'geografia',
                          respuesta: 'Lisboa'})
-            .success(function(){
+            .then(function(){
                 console.log('Base de datos inicializada');
             });
         }
